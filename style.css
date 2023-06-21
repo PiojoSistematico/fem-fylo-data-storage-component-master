@@ -1,0 +1,274 @@
+:root {
+  /* Colors */
+  --clr-primary-gradient-start: hsl(6, 100%, 80%);
+  --clr-primary-gradient-end: hsl(335, 100%, 65%);
+
+  --clr-neutral-pale-blue: hsl(243, 100%, 93%);
+  --clr-neutral-grayish-blue: hsl(229, 7%, 55%);
+  --clr-neutral-dark-blue: hsl(228, 56%, 26%);
+  --clr-neutral-very-dark-blue: hsl(229, 57%, 11%);
+
+  /* Font Family */
+  --font-family-primary: "Raleway", sans-serif;
+
+  /* Font Weight */
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+
+  /* Font Size */
+  --font-size-200: 0.75rem;
+  --font-size-300: 0.875rem;
+  --font-size-400: 1rem;
+  --font-size-500: 1.125rem;
+  --font-size-600: 1.25rem;
+  --font-size-700: 1.5rem;
+  --font-size-800: 1.875rem;
+  --font-size-900: 2.25rem;
+}
+
+/* Reset */
+/*  https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General styling */
+
+body {
+  color: var(--clr-neutral-pale-blue);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(bg-mobile.png);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "links-section"
+    "data-section";
+  gap: 1rem;
+  width: 300px;
+  height: 400px;
+  grid-template-rows: 5fr 4fr;
+}
+
+.links-section {
+  grid-area: links-section;
+  background-color: var(--clr-neutral-dark-blue);
+  border-radius: 1rem 7rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem 2rem;
+}
+
+.media-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.media-links img {
+  background-color: var(--clr-neutral-very-dark-blue);
+  padding: 0.6rem;
+  width: 40px;
+  border-radius: 0.5rem;
+}
+
+.data-section {
+  grid-area: data-section;
+  background-color: var(--clr-neutral-dark-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.bar-section {
+  width: 100%;
+}
+
+.bar {
+  background-color: var(--clr-neutral-very-dark-blue);
+  height: 1rem;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.1rem;
+}
+
+.filled-bar {
+  background: linear-gradient(
+    90deg,
+    var(--clr-primary-gradient-start),
+    var(--clr-primary-gradient-end)
+  );
+  width: 81.5%;
+  height: 0.8rem;
+  border-radius: 1rem;
+  padding: 0.1rem;
+  display: flex;
+  justify-content: end;
+}
+
+.circle {
+  background-color: var(--clr-neutral-pale-blue);
+  height: 0.6rem;
+  width: 0.6rem;
+  border-radius: 0.6rem;
+}
+
+.limits {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.accent {
+  font-weight: var(--font-weight-bold);
+}
+
+.leftover {
+  background-color: white;
+  color: var(--clr-neutral-grayish-blue);
+  text-transform: uppercase;
+  width: 120px;
+  height: 60px;
+  border-radius: 1rem;
+  font-weight: var(--font-weight-bold);
+  padding: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  border: none;
+}
+
+.big {
+  color: black;
+  font-size: var(--font-size-700);
+}
+
+.arrow {
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* Media queries */
+@media (min-width: 50em) {
+  body {
+    background-color: var(--clr-neutral-very-dark-blue);
+    background-image: url(bg-desktop.png);
+    background-position: 0% 100%;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 100% 50%;
+  }
+
+  main {
+    display: grid;
+    grid-template-areas: "links-section data-section";
+    gap: 1rem;
+    width: 800px;
+    height: 200px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 5fr;
+  }
+
+  .data-section {
+    height: 150px;
+    margin-top: 50px;
+  }
+
+  .leftover {
+    transform: translate(50%, -175%);
+  }
+
+  p {
+    text-align: left;
+    width: 100%;
+  }
+
+  .arrow {
+    display: block;
+    transform: translate(800%, -175%);
+  }
+}
